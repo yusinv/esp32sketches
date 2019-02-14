@@ -263,7 +263,7 @@ void waterCntStateUpdate(){
   ESP_ERROR_CHECK(pcnt_counter_clear(COLD_WATER_PCNT_UNIT));
   Serial.print("Cold water Counter: ");
   Serial.println(value);
-  mqttClient.publish(COLD_WATER_CNT_TOPIC, String(value*10).c_str());
+  mqttClient.publish(COLD_WATER_CNT_TOPIC, String(value).c_str());
 
   value = 0;
 
@@ -271,7 +271,7 @@ void waterCntStateUpdate(){
   ESP_ERROR_CHECK(pcnt_counter_clear(HOT_WATER_PCNT_UNIT));
   Serial.print("Hot water Counter: ");
   Serial.println(value);
-  mqttClient.publish(HOT_WATER_CNT_TOPIC, String(value*10).c_str()); 
+  mqttClient.publish(HOT_WATER_CNT_TOPIC, String(value).c_str()); 
 }
 
 void lightStateUpdate(){
